@@ -1,4 +1,4 @@
-query todoQuery($id: Int!) {
+query todoQuery($id: ID!) {
   todo(id: $id) {
     id
     done

@@ -15,9 +15,9 @@ import { TypedDocumentNode as DocumentNode } from '@graphql-typed-document-node/
 const documents = {
     "fragment TodoFr on Todo {\n  id\n  text\n}": types.TodoFrFragmentDoc,
     "mutation createTodo($todo: TodoInput!) {\n  createTodo(todo: $todo) {\n    id\n  }\n}": types.CreateTodoDocument,
-    "mutation updateTodo($id: Int!, $todo: TodoInput!) {\n  updateTodo(id: $id, changes: $todo) {\n    id\n  }\n}": types.UpdateTodoDocument,
+    "mutation updateTodo($id: ID!, $todo: TodoInput!) {\n  updateTodo(id: $id, todo: $todo) {\n    id\n  }\n}": types.UpdateTodoDocument,
     "query lastTodoQuery {\n  lastTodo {\n    id\n    done\n    text\n  }\n}": types.LastTodoQueryDocument,
-    "query todoQuery($id: Int!) {\n  todo(id: $id) {\n    id\n    done\n    text\n  }\n}": types.TodoQueryDocument,
+    "query todoQuery($id: ID!) {\n  todo(id: $id) {\n    id\n    done\n    text\n  }\n}": types.TodoQueryDocument,
     "query todosQuery {\n  todos {\n    id\n    done\n    text\n  }\n}": types.TodosQueryDocument,
 };
 
@@ -46,7 +46,7 @@ export function gql(source: "mutation createTodo($todo: TodoInput!) {\n  createT
 /**
  * The gql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
-export function gql(source: "mutation updateTodo($id: Int!, $todo: TodoInput!) {\n  updateTodo(id: $id, changes: $todo) {\n    id\n  }\n}"): (typeof documents)["mutation updateTodo($id: Int!, $todo: TodoInput!) {\n  updateTodo(id: $id, changes: $todo) {\n    id\n  }\n}"];
+export function gql(source: "mutation updateTodo($id: ID!, $todo: TodoInput!) {\n  updateTodo(id: $id, todo: $todo) {\n    id\n  }\n}"): (typeof documents)["mutation updateTodo($id: ID!, $todo: TodoInput!) {\n  updateTodo(id: $id, todo: $todo) {\n    id\n  }\n}"];
 /**
  * The gql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
@@ -54,7 +54,7 @@ export function gql(source: "query lastTodoQuery {\n  lastTodo {\n    id\n    do
 /**
  * The gql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
-export function gql(source: "query todoQuery($id: Int!) {\n  todo(id: $id) {\n    id\n    done\n    text\n  }\n}"): (typeof documents)["query todoQuery($id: Int!) {\n  todo(id: $id) {\n    id\n    done\n    text\n  }\n}"];
+export function gql(source: "query todoQuery($id: ID!) {\n  todo(id: $id) {\n    id\n    done\n    text\n  }\n}"): (typeof documents)["query todoQuery($id: ID!) {\n  todo(id: $id) {\n    id\n    done\n    text\n  }\n}"];
 /**
  * The gql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */

@@ -1,11 +1,12 @@
 <template>
   <div>
     {{ todos }}
+
+    <TodosDemo />
   </div>
 </template>
 
 <script lang="ts">
-import todosQuery from "~/graphql/queries/todosQuery.gql"
 import { TodosQueryDocument, TodosQueryQuery } from "~/gqlTypes/graphql"
 
 type DataType = {

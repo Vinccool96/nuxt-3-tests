@@ -2,14 +2,39 @@
 
 schema {
   query: Query
+  mutation: Mutation
+  subscription: Subscription
+}
+
+type Mutation {
+  createTodo(todo: TodoInput!): Todo!
+  deleteTodo(id: ID!): Todo
+  updateTodo(id: ID!, todo: TodoInput!): Todo
 }
 
 type Query {
-  todo(id: ID!): Todo!
+  lastTodo: Todo
+  todo(id: ID!): Todo
+  todos: [Todo!]!
 }
 
+type Subscription {
+  todoAdded: Todo
+}
+
+"A todo"
 type Todo {
+  "Is it done already?"
   done: Boolean!
   id: ID!
+  "The body text"
+  text: String!
+}
+
+"Passed to createTodo to create a new todo"
+input TodoInput {
+  "Is it done already?"
+  done: Boolean
+  "The body text"
   text: String!
 }

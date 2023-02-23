@@ -1,7 +1,7 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   ssr: false,
-  modules: ["nuxt-apollo"],
+  modules: ["nuxt-apollo", "@nuxt/ui"],
 
   apollo: {
     autoImports: true,
@@ -13,7 +13,8 @@ export default defineNuxtConfig({
     clients: {
       default: {
         tokenName: "spacex-token",
-        httpEndpoint: "https://nuxt-gql-server-2gl6xp7kua-ue.a.run.app/query",
+        httpEndpoint: "http://localhost:3000/graphql ",
+        wsEndpoint: "ws://localhost:3000/graphql ",
         httpLinkOptions: {
           credentials: "same-origin",
           headers: {

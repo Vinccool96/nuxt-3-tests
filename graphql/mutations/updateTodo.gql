@@ -1,5 +1,5 @@
-mutation updateTodo($id: Int!,$todo: TodoInput!) {
-  updateTodo(id: $id, changes: $todo) {
+mutation updateTodo($id: ID!,$todo: TodoInput!) {
+  updateTodo(id: $id, todo: $todo) {
     id
   }
 }
