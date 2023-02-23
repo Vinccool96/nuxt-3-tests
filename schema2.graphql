@@ -1,0 +1,48 @@
+# This file was generated based on ".graphqlconfig". Do not edit manually.
+
+schema {
+    query: Query
+    mutation: Mutation
+    subscription: Subscription
+}
+
+"Prevents access to a field if the user doesnt have the matching role"
+directive @hasRole(role: Role!) on FIELD_DEFINITION
+
+directive @user(id: Int!) on QUERY | MUTATION | FIELD
+
+type Mutation {
+    createTodo(todo: TodoInput!): Todo!
+    updateTodo(changes: TodoInput!, id: Int!): Todo
+}
+
+type Query {
+    lastTodo: Todo
+    todo(id: Int!): Todo
+    todos: [Todo!]!
+}
+
+type Subscription {
+    todoAdded: Todo
+}
+
+type Todo {
+    done: Boolean!
+    id: Int!
+    text: String!
+}
+
+enum Role {
+    ADMIN
+    OWNER
+}
+
+scalar Map
+
+"Passed to createTodo to create a new todo"
+input TodoInput {
+    "Is it done already?"
+    done: Boolean
+    "The body text"
+    text: String!
+}

@@ -1,0 +1,7 @@
+query lastTodoQuery {
+  lastTodo {
+    id
+    done
+    text
+  }
+}

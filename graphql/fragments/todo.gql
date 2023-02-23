@@ -1,0 +1,4 @@
+fragment TodoFr on Todo {
+  id
+  text
+}
